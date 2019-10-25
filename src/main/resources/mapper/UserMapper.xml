@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.excle.mapper.UserMapper">
+
+    <select id="findAll" resultType="com.example.excle.pojo.User">
+        select
+                id,
+                userName,
+                password
+        from `user`
+    </select>
+    <insert id="saveAll" parameterType="java.util.List">
+        insert into `user`(
+                        id,
+                        userName,
+                        password)
+        values(
+                     #{list[0].id},
+                     #{list[0].userName},
+                     #{list[0].password})
+    </insert>
+
+</mapper>
